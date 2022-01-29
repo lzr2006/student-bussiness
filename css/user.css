@@ -1,0 +1,29 @@
+.tag
+{
+    background-color: #ddf4ff;
+    border-radius: 2em;
+}
+.tag:hover
+{
+    background-color: #0969da;
+    color:white;
+}
+#tag_area
+{
+    border: solid 1px;
+    width: 20cm;
+}
+/*个人标签堆栈列表*/
+#user_skill_tag
+{
+    border: solid 2px;
+    background-color: wheat;
+    height:5cm;
+    overflow:scroll;
+}
+.edit
+{
+    border: solid 2px;
+    height: 10cm;
+    overflow-y: scroll;
+}
