@@ -6,80 +6,50 @@ $(function()
     {
         //todo 重构到单独的html里面去
         $("#profile_edit #content").empty()
-        $("#profile_edit #content").append('<input id="file" type="file" style="display:none">')
-        $("#profile_edit #content").append("<label>昵称</label>")
-        $("#profile_edit #content").append("<input type='text' placeholder='请输入昵称'/>")
-        $("#profile_edit #content").append("<br/>")
-
-        $("#profile_edit #content").append("<span>用户头像</span><img id='edit_head' src='img/sand.png' width='100px' />")
-        $("#profile_edit #content").append("<br/>")
-
-        $("#profile_edit #content").append("<label>性别</label>")
-        $("#profile_edit #content").append("<form action='.php'> <input type='radio' name='sex'/>男<input type='radio'name='sex'/> 女</form>")
-        $("#profile_edit #content").append("<br/>")
-
-        $("#profile_edit #content").append("<span>所在地</span><input placeholder='请输入所在地'>")
-        $("#profile_edit #content").append("<br/>")
-
-        $("#profile_edit #content").append("<span>个人介绍</span><textarea placeholder='请输入你的个人介绍'></textarea>")
-        $("#profile_edit #content").append("<br/>")
-
-        $("#profile_edit #content").append("<span>qq</span><input placeholder='请输入你的qq'>")
-        $("#profile_edit #content").append("<br/>")
-
-        $("#profile_edit #content").append("<span>微信</span><input placeholder='请输入你的微信'>")
-
-        $("#profile_edit #content").append("<br/>")
-        $("#profile_edit #content").append("<button id='save'>保存</button>")
-        $("#profile_edit #content").append("<button id='back'>返回</button>")
-        $("#back").on("click",function()
+        $.get("instance/user_basic.html",function(data,status)
         {
-            //alert("返回！")
-            $("#profile_edit #content").empty()
-            $.get("instance/user_content.html",function(data,status)
+            $("#profile_edit #content").append(data)
+            $("#back").on("click",function()
             {
-                console.log(data)
-                $("#profile_edit").append(data)
+                $("#profile_edit #content").empty()
+                $.get("instance/user_content.html",function(data,status)
+                {
+                    console.log(data)
+                    $("#profile_edit #content").append(data)
+                })
             })
-            
-        })
-        $("#save").on("click",function()
-        {
-            alert("信息已保存！")
-        })
-        $("#edit_head").click(function()
-        {
-
-        })
-        //更换头像
-        $("#edit_head").click(function()
-        {
-            //console.log("更换头像！")
-            $("#file").trigger("click")
-        })
-        $("#file").on("change",function()
-        {
-            console.log(this)
-            var file = event.target.files[0]
-            console.log(file)
-            var pettern = /^image/;                
-            console.info(file.type)
-            if (!pettern.test(file.type)) 
+            $("#save").on("click",function()
             {
-                alert("图片格式不正确");
-                return;
-            }
-            var fr = new FileReader()
-            fr.readAsDataURL(file)
-            fr.onload = function(e)
+                alert("信息已保存！")
+            })
+            //更换头像
+            $("#edit_head").click(function()
             {
-                console.log(e)
-                var result = this.result
-                console.log(result)
-                $("#edit_head").attr("src",result)
-            }
-            //var final = fr.readAsArrayBuffer(file)
-            //console.log(final)
+                //console.log("更换头像！")
+                $("#file").trigger("click")
+            })
+            $("#file").on("change",function()
+            {
+                console.log(this)
+                var file = event.target.files[0]
+                console.log(file)
+                var pettern = /^image/;                
+                console.info(file.type)
+                if (!pettern.test(file.type)) 
+                {
+                    alert("图片格式不正确");
+                    return;
+                }
+                var fr = new FileReader()
+                fr.readAsDataURL(file)
+                fr.onload = function(e)
+                {
+                    console.log(e)
+                    var result = this.result
+                    console.log(result)
+                    $("#edit_head").attr("src",result)
+                }
+            })
         })
     })
     
