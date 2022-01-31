@@ -9,6 +9,7 @@
                 border: solid 1px;
             }
         </style>
+        <link rel="stylesheet" href="css/bussiness.css">
         <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="js/bussiness.js"></script>
         <script src="js/nav.js"></script>
@@ -22,6 +23,7 @@
         <p>由于站长没有公司资质，所以没法直接接入支付宝做托管，所以必定要在技术上以另外的方式实现金钱的交易，有或者是以物换物，或者劳动价值直接交换劳动价值，而不通过金钱，但社会要用钱挺麻烦的，在小圈子可以实现无钱，但是别人不认同，烦那！！</p>
         -->
         <p>请选择项目类型 (单选)</p>
+    <div id="project_type">
         <button>底层开发类</button>
         <button>多媒体类</button>
         <button>人工智能类</button>
@@ -38,20 +40,21 @@
         <button>程序开发指导</button>
         <button>绘画指导</button>
         <button>人生指导</button>
-        <button>马克思指导</button>
+        <!--<button>马克思指导</button>-->
         <button>安卓开发指导</button>
+    </div>
         <p>列表里没有你想要的类型？</p>
         <input placeholder="请在此输入你想要的类型"/>
         <button>提交</button>
         <br/>
         <input placeholder="请输入标题描述"/>
         <br/>
-        <div id="quest_all_need" contenteditable="true">请输入详细需求描述</div>
-       
-        <button>添加附件</button>
-        <button>上传</button>
+        <textarea id="quest_all_need" placeholder="请输入详细需求描述"></textarea>
+        <br/>
+        <!--<button>添加附件</button>
+        <button>上传</button>-->
         <br/>
         <button id="post_quest">提交办事请求</button>
-        <p>请把附件以压缩包的方式上传，请使用高压缩比的7z格式</p>
+        <!--<p>请把附件以压缩包的方式上传，请使用高压缩比的7z格式</p>-->
     </body>
 </html>

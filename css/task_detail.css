@@ -1,0 +1,13 @@
+#panel #content .attention
+{
+    border-left: 4px solid #1890ff;
+}
+#panel
+{
+    border: solid 2px;
+}
+.user
+{
+    cursor: pointer;
+    width: 100px;
+}
