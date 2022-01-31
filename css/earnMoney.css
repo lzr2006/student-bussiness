@@ -1,0 +1,13 @@
+.li
+{
+    border: solid 2px;
+    margin-top: 10px;
+}
+.li .proj_state
+{
+    color: red;
+}
+.li .price
+{
+    color: green;
+}

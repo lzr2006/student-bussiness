@@ -1,3 +1,55 @@
+#profile_root
+{
+    border: solid 2px;
+    width: 15%;
+    height: 624px;
+    display: inline-block;
+    padding: 0px;
+    vertical-align: top;
+}
+#profile_root li
+{
+    list-style-type:none;
+    margin-left: 0px;
+    /* border-left: 4px solid #1890ff; */
+}
+#profile_root li:hover
+{
+    background-color: rgba(53, 51, 51, 0.244);
+}
+#profile_edit
+{
+    display: inline-block;
+    border: solid 2px;
+    height: 624px;
+    width: 80%;
+    vertical-align: top;
+}
+#profile_edit #title #edit_btn
+{
+    float: right;
+}
+/*编辑后的保存 返回按钮*/
+#save
+{
+    background-color: #0969da;
+    color: white;
+    cursor: pointer;
+    border: solid 1px;
+    width: 180px;
+    height: 50px;
+}
+#back
+{
+    cursor: pointer;
+    width: 180px;
+    height: 50px;
+    border: solid 1px;
+}
+#edit_head
+{
+    cursor: pointer;
+}
 .tag
 {
     background-color: #ddf4ff;

@@ -1,0 +1,16 @@
+/*导航栏*/
+.nav
+{
+    background-color: black;
+}
+.nav a
+{
+    text-decoration: none;
+    color: white;
+}
+
+.nav a:hover
+{
+    background-color: yellow;
+    color: black;
+}

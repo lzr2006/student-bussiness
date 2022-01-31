@@ -8,17 +8,45 @@
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="js/user.js"></script>
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/user.css">
 </head>
-<body>
-    <a href="index.html"><img src="img/sand.png" width="250px"></a>
-
+    <!--导航栏-->
+    <div class="nav">
+        <!-- <img src="img/sand.png" width="100px">-->
+     <a href="index.html">返回首页</a>
+     <a href="earnMoney.html">任务大厅</a>
+     <a href="bussiness.html">发布任务</a>
+     <a href="user.html">个人中心</a>
+ </div>
    <center><h1>不因学历而自卑，加油坚持才能胜利！</h1>
    </center> 
-   <button>修改头像</button>
-   <button>修改昵称</button>
+   <p id="title">资料设置</p>
+   <ol id="profile_root">
+       <li>基本信息</li>
+       <li>账号绑定</li>
+       <li>实名认证</li>
+   </ol>
+   <div id="profile_edit">
+    <div id="title">
+        <b>基本信息</b>
+       <button id="edit_btn">编辑</button>
+    </div>
+    <div id="content">
+       <img width="200px" src="img/sand.png" alt="用户头像">
+       <p>昵称</p>
+       <p>性别</p>
+       <p>所在地</p>
+       <p>职业：自由职业</p>
+       <p>个人介绍</p>
+    </div>
+   </div>
+   
+   <br/>
    <button>提现</button>
    <button>充值</button>
    <!--以后重构-->
+   <!--
    <p>荣誉证书</p>
    <button id="upload_zhenshu">上传图片</button>
    <button>图片</button>
@@ -47,5 +75,6 @@
    </div>
    <button>提交</button>
    <p>做最有个性的00后自己的技能赚钱网站，视频需要用转链接，因为缺钱，我的设想是使用无产的方式实现这些目标！</p>
+-->
 </body>
 </html>
