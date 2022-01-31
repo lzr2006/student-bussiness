@@ -11,3 +11,8 @@
 {
     color: green;
 }
+#sub_title button
+{
+    float: right;
+    cursor: pointer;
+}
