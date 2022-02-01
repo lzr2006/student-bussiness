@@ -51,6 +51,8 @@ else if($action == "register")
   {
      //注册！
      echo "邮箱验证成功！";
+     //验证成功后销毁session
+     session_destroy();
   }
   else
   {
