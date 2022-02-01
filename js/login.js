@@ -23,7 +23,17 @@ $(function()
     {
         var account = $("#account").val()
         var pwd = $("#pwd").val()
-        var verify = $("#verify").val()
+        var verify = $("#verify_input").val()
+        $.post("api/register.php",
+        {
+            'action'  : 'register',
+            'account' : account,
+            'pwd'     : pwd,
+            'verify'  : verify,  
+        },function(data,status)
+        {
+            alert(data)
+        })
         console.log(account)
         console.log(pwd)
         console.log(verify)
@@ -37,10 +47,18 @@ $(function()
             $(this).attr("disabled","disabled")
             $.post("api/register.php",
             {
-                'account':account,
+                'action' : 'request_email_verify',
+                'account': account,
             },function(data,status)
             {
-                alert(data)
+                if(data)
+                {
+                    alert(data)
+                }
+                else
+                {
+                    alert("后台异常，未返回数据！")
+                }
             })
         }
         else
