@@ -1,12 +1,25 @@
 <?php
-#开源库版本6.5.3
+#开源库版本6.5.3 thinkphp 5.0.24
 session_start();
+include("db.php");
 use PHPMailer\PHPMailer\PHPMailer;
+/*namespace app\index\controller;
+use think\Db;
+use think\Controller;
+class Index extends Controller
+{
+   public function index(){}
+   public function data()
+   {
+
+   }
+}*/
 #use PHPMailer\PHPMailer\Exception;
 #授权码 tigklvudaaysdjhg
 require("PHPMailer/src/PHPMailer.php");
 require("PHPMailer/src/SMTP.php");
-
+//require("thinkphp/Db");
+//require("thinkphp")
 $action = $_POST['action'];
 $account = $_POST['account'];
 $pwd = $_POST['pwd'];
@@ -51,13 +64,30 @@ else if($action == "register")
   {
      //注册！
      echo "邮箱验证成功！";
+     $dbConn = core_connect_to_db("127.0.0.1","root","root","student");
+     //echo $dbConn;
+     $sql = "SELECT account FROM user WHERE account = '$account' ";
+     $nums = mysqli_num_rows(mysqli_query($dbConn,$sql));
+     echo "行数".$nums;
+     if($nums == 0)
+     {
+        echo "可以注册";
+        $insertSql = "INSERT INTO user(account,pwd,username)VALUES('$account','$pwd',null)";
+        $result = mysqli_query($dbConn,$insertSql);
+        echo $result;
+     }
+     else
+     {
+        echo "此邮箱地址已经被注册过了";
+     }
+     #mysqli_query()
      //mysqli_connect()
      //验证成功后销毁session
      session_destroy();
   }
   else
   {
-     echo "错误，邮箱验证码不正确";
+     echo "错误，邮箱验证码不正确或验证码已过期";
   }
 }
 else if($action == "login")

@@ -35,6 +35,8 @@ $(function()
             },function(data,status)
             {
                 alert(data)
+                document.write(data)
+                console.log(data)
             })
         }
         else
