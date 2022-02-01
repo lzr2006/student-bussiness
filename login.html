@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/login.css">
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- <script src="js/nav.js"></script> -->
+    <script src="js/login.js"></script>
 </head>
 <body>
     <!-- <div class="nav"></div> -->
@@ -17,7 +18,7 @@
             <ul>
                 <li>
                     <div class="text">
-                        <span class="yonghu">用户</span><input type="text" placeholder="请输入用户名" id="account">
+                        <span class="yonghu">用户</span><input type="text" placeholder="请输入邮箱账号" id="account">
                     </div>
                 </li>
                 <li>
@@ -25,6 +26,13 @@
                         <span class="mima">密码</span><input type="password" placeholder="请输入密码" id="pwd"  />
                     </div>
                 </li>
+                <li>
+                    <div class="text">
+                        <span class="mima">验证码</span><input type="password" placeholder="请输入邮箱验证码"/>
+                    </div>
+                </li>
+                <li><input type="button" value="获取邮箱验证码" id="verify"></li>
+                <li><span id="timer">再次获取倒计时:60</span></li>
                 <li class="remember">
                     <input type="checkbox">记住我
                 </li>
@@ -35,6 +43,7 @@
                 <li>
                     <input type="button" value="注册" id="register" >
                 </li>
+            
             </ul>
     
         <div class="footer">
