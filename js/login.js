@@ -24,19 +24,23 @@ $(function()
         var account = $("#account").val()
         var pwd = $("#pwd").val()
         var verify = $("#verify_input").val()
-        $.post("api/register.php",
+        if(account != "" && pwd != "" && verify!= "")
         {
-            'action'  : 'register',
-            'account' : account,
-            'pwd'     : pwd,
-            'verify'  : verify,  
-        },function(data,status)
+            $.post("api/register.php",
+            {
+                'action'  : 'register',
+                'account' : account,
+                'pwd'     : pwd,
+                'verify'  : verify,  
+            },function(data,status)
+            {
+                alert(data)
+            })
+        }
+        else
         {
-            alert(data)
-        })
-        console.log(account)
-        console.log(pwd)
-        console.log(verify)
+            alert("错误，存在未输入的值！")
+        }
     })
     $("#verify").click(function()
     {
