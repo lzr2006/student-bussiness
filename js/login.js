@@ -1,5 +1,6 @@
 $(function()
 {
+    //高并发时使用不同邮箱处理发件机制 网易smtp + qq smtp + 其他邮箱smtp
     //限制用户每次获取验证码至少要间隔60秒
     var verify_reset = 60
     var timer

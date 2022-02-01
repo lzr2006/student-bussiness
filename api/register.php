@@ -27,14 +27,14 @@ $mail->setFrom($sendmail, $send_name);// 设置发件人信息，如邮件格式
 $mail->addAddress($toemail, $to_name);// 设置收件人信息，如邮件格式说明中的收件人，
 $mail->addReplyTo($sendmail, $send_name);// 设置回复人信息，指的是收件人收到邮件后，如果要回复，回复邮件将发送到的邮箱地址
 $mail->Subject = "学生技能知识付费-赚钱外包平台";// 邮件标题
-//$code=rand(100000,999999);
+$code=rand(0000,9999);
 //$_SESSION["code"] = $code;
-$mail->Body = "尊敬的用户，欢迎使用学生技能知识付费-赚钱外包平台，如果非本人操作无需理会！，以下代码是您的邮箱验证码，请将它写入网站注册窗口\n1122886";
+$mail->Body = "尊敬的用户，欢迎使用学生技能知识付费-赚钱外包平台，如果非本人操作无需理会！验证码5分钟内有效，以下代码是您的邮箱验证码，请将它写入网站注册窗口\n$code";
 //$mail->addAttachment("send.php");
 #$mail->Body = "邮件内容是 <b>您的验证码是：$code</b>，";// 邮件正文
 if(!$mail->Send()) {
     echo "Mailer Error: " . $mail->ErrorInfo;
  } else {
-    echo "邮箱验证码一发送，请注意查收，验证码一分钟内有效";
+    echo "邮箱验证码一发送，请注意查收，验证码5分钟内有效";
  }
 ?>
