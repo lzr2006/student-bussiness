@@ -1,0 +1,26 @@
+#title span
+{
+    cursor: pointer;
+    font-size: 20px;
+}
+#title span:hover
+{
+    color: #1890ff ;
+}
+#title
+{
+    border-bottom: solid 2px gray;
+}
+#block
+{
+    border: solid 2px;
+}
+#money
+{
+    font-size: large;
+}
+#chongzhi
+{
+    background-color: #0969da;
+    color: white;
+}
