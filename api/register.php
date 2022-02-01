@@ -63,22 +63,22 @@ else if($action == "register")
   if($verify_code == $_SESSION['code'])
   {
      //注册！
-     echo "邮箱验证成功！";
+     //echo "邮箱验证成功！";
      $dbConn = core_connect_to_db("127.0.0.1","root","root","student");
      //echo $dbConn;
      $sql = "SELECT account FROM user WHERE account = '$account' ";
      $nums = mysqli_num_rows(mysqli_query($dbConn,$sql));
-     echo "行数".$nums;
+     //echo "<br/>行数".$nums;
      if($nums == 0)
      {
-        echo "可以注册";
+        //echo "可以注册";
         $insertSql = "INSERT INTO user(account,pwd,username)VALUES('$account','$pwd',null)";
         $result = mysqli_query($dbConn,$insertSql);
         echo $result;
      }
      else
      {
-        echo "此邮箱地址已经被注册过了";
+        echo false;
      }
      #mysqli_query()
      //mysqli_connect()
@@ -92,7 +92,19 @@ else if($action == "register")
 }
 else if($action == "login")
 {
-  
+   $dbConn = core_connect_to_db("127.0.0.1","root","root","student");
+   $sql = "SELECT pwd FROM user WHERE account = '$account' ";
+   $query = mysqli_query($dbConn,$sql);
+   $result = mysqli_fetch_row($query);
+   echo $result[0];
+   if($pwd == $result[0])
+   {
+      echo true;
+   }
+   else
+   {
+      echo false;
+   }
 }
 else
 {

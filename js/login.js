@@ -8,7 +8,7 @@ $(function()
     {
         verify_reset -= 1
         $("#timer").text("再次获取倒计时:"+verify_reset)
-        console.log(verify_reset)
+        //console.log(verify_reset)
         if(verify_reset == 0)
         {
             console.log("清除计时器！")
@@ -19,6 +19,37 @@ $(function()
             $("#timer").text("再次获取倒计时:"+verify_reset)
         }
     }
+    $("#Mylogin").click(function()
+    {
+        var account = $("#account").val()
+        var pwd = $("#pwd").val()
+        if(account !="" && pwd!= "")
+        {
+            $.post("api/register.php",
+            {
+                'action' : 'login',
+                'account': account,
+                'pwd'    : pwd,   
+            },function(data,status)
+            {
+                if(data)
+                {
+                    alert("登录成功,带你到主页")
+                    //todo cookie缓存
+                    window.open("index.html","_self")
+                }
+                else
+                {
+                    alert("错误，无数据返回！")
+                }
+                //console.log(data)
+            })
+        }
+        else
+        {
+            alert("错误，缺少必要信息")
+        }
+    })
     $("#register").click(function()
     {
         var account = $("#account").val()
@@ -34,9 +65,28 @@ $(function()
                 'verify'  : verify,  
             },function(data,status)
             {
-                alert(data)
-                document.write(data)
-                console.log(data)
+                //alert(data)
+                if(data)
+                {
+                    console.log(data)
+                    //console.log(typeof(data))
+                    if(data == "1")
+                    {
+                        alert("注册成功,带你到主页")
+                        //todo cookie缓存
+                        console.log(data)
+                        window.open("index.html","_self")
+                    }
+                    if(data == "0")
+                    {
+                        alert("错误！注册失败")
+                    }
+                }
+                else
+                {
+                    alert("错误，无数据返回！")
+                }
+                //document.write(data)
             })
         }
         else
