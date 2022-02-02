@@ -3,16 +3,26 @@ $(function()
     //alert("测试安装！")
     $("#post_quest").click(function()
     {
-        var quest_detail = $("#quest_all_need").text()
-        console.log(quest_detail)
+        var title   = $("#title").val()
+        var content = $("#content").val()
+        var user    = "测试用户666"
+        var price   = $("#price").val()
+        console.log("title:"+title)
+        console.log("content:"+content)
+        console.log("user:"+user)
+        console.log("price:"+price)
         //参数：具体需求内容 提交者 
         $.post("api/bussiness.php",
         {
-            quest_detail:quest_detail,
-            poster:"测试用户666"
+            'title'        : title  ,
+            'content'      : content,
+            'price'        : price,
+            'poster'       : user
         },function(data,status)
         {
-            alert(data)
+            console.log("状态："+status)
+            console.log("返回数据")
+            console.log(data)
             if(data == "任务发布成功")
             {
                 window.open("earnMoney.html","_self")
