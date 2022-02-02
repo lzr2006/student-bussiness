@@ -9,13 +9,13 @@ $(function()
         $.post("api/bussiness.php",
         {
             quest_detail:quest_detail,
-            poster:""
+            poster:"测试用户666"
         },function(data,status)
         {
-            if(status!=200)
+            /*if(status!=200)
             {
                 alert("服务出错！")
-            }
+            }*/
         })
     })
 })
