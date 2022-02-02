@@ -1,54 +1,45 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="js/jiedan.js"></script>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/earnMoney.css">
         <link rel="stylesheet" href="css/nav.css">
+        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="js/jiedan.js"></script>
+
         <script src="js/nav.js"></script>
+        <script src="js/earn.js"></script>
         <title>赚钱</title>
     </head>
     <body>
     <!--导航栏-->
     <div class="nav"></div>
-    <center><h1>赚钱</h1></center>
+    <h1 style="text-align: center;">赚钱</h1>
     <div id="sub_title">
     <span>任务大厅</span>
-    <button>发布任务</button>
+    <button id="refresh" class="btn btn-primary">立即刷新任务列表</button>
+    <button id="publish" class="btn btn-success">发布任务</button>
     </div>
+    <div id="list"></div>
     <!--<p>最简单的界面最高效，而且还省网络费用</p>-->
     <!--此处请求php并返回动态数据处理-->
-    <div class="li">
+    <!--任务列表模板-->
+    <!-- <div class="li">
         <img width="100px" src="img/sand.png" alt="项目图片预览">
         <a href="task_detail.html" target="_blank"><b>项目名称</b></a>
         <span class="proj_state"><b>项目状态</b></span><span>招标中</span>
         <span class="price"><b>价格:</span></b><span>￥100</span>
         <p>技能要求:Java</p> 
-    </div>
-    <div class="li">
-        <img width="100px" src="img/sand.png" alt="项目图片预览">
-        <a href="task_detail.html" target="_blank"><b>项目名称</b></a>
-        <span class="proj_state"><b>项目状态</b></span><span>招标中</span>
-        <span class="price"><b>价格:</span></b><span>￥100</span>
-        <p>技能要求:Python</p> 
-    </div>
-    <div class="li">
-        <img width="100px" src="img/sand.png" alt="项目图片预览">
-        <a href="task_detail.html" target="_blank"><b>项目名称</b></a>
-        <span class="proj_state"><b>项目状态</b></span><span>招标中</span>
-        <span class="price"><b>价格:</span></b><span>￥100</span>
-        <p>技能要求:Python</p> 
-    </div>
-    <div>
-        <button>上一页</button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>下一页</button>
-    </div>
+    </div> -->
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
   <!-- <div>任务分类</div>-->
 </body>
 </html>

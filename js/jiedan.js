@@ -5,7 +5,7 @@ $(function()
     {
         window.open("jiedan.html")
     })*/
-    $("#sub_title button").click(function()
+    $("#sub_title #publish").click(function()
     {
         window.open("bussiness.html","_self")
     })
