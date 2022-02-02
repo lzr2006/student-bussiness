@@ -53,6 +53,7 @@
                             {
                                 'title'       : json[0].title,
                                 'content'     : json[0].content,
+                                'price'       : json[0].price,
                                 'user'        : json[0].user,
                                 'check_state' : true
                             },function(data,status)
@@ -84,7 +85,19 @@
                 {
                     get_latest()
                 })
-                
+                //重新审核
+                $("#recheck").click(function()
+                {
+                    var state = confirm("你确定要重新审核所有任务吗？这将导致所有任务重置为状态0")
+                    if(state)
+                    {
+                        //todo
+                    }
+                    else
+                    {
+                        //todo
+                    }
+                })
             })
     </script>
 </head>
@@ -93,6 +106,7 @@
     <h1 style="text-align: center;">后台中心</h1>
     <span>审核任务</span>
     <button id="update" class="btn btn-primary">获取下一行最新数据</button>
+    <button id="recheck" class="btn btn-danger">重新审核全部任务</button>
     <div class="block">
         <ol>
             <!-- 模板 -->
