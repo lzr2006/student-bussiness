@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>后台中心</title>
     <style>
         .block
@@ -15,40 +15,94 @@
             display: inline;
         }
         </style>
-        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <!-- <script src="../../js/center.js"></script> -->
         <script>
             $(function()
             {
-                $("#update").click(function()
+                get_latest()
+                function get_latest()
                 {
                     $.get("get_latest_task.php",function(data,status)
                     {
                         console.log("获取！"+data)
-                        //document.write(data);
-                        var li = "<li>"
-                        var li_end = "</li>"
                         var json = JSON.parse(data)
                         console.log(json)
-                        $("ol").append(li + data + li_end)
+                        if(json.length == 0)
+                        {
+                            $("ol").empty()
+                            $("ol").append("<li>暂时没有用户提交新的任务</li>")
+                            return
+                        }
+                        var li = $("<li></li>")
+                        var title = "<h3 class='title'>任务标题:" + json[0].title + "</h3>"
+                        var sub_title = " <h4 class='title'>提交者:" + json[0].user + "</h4>"
+                        $(li).append(title)
+                        $(li).append(sub_title)
+                        $(li).append("<div>需求内容:"+ json[0].content + "</div>")
+                        $(li).append("<button id='pass' type='button' class='btn btn-success'>审核通过</button>")
+                        $(li).append("<button id='unpass' type='button' class='btn btn-dark'>审核不通过</button>")
+                        $("ol").empty()
+                        $("ol").append(li)
+                        $("#pass").on("click",function()
+                        {
+                            $.post("task_check.php",
+                            {
+                                'title'       : json[0].title,
+                                'content'     : json[0].content,
+                                'check_state' : true
+                            },function(data,status)
+                            {
+                                console.log(data)
+                                //操作完成之后再次请求最新数据
+                                get_latest()
+                            })
+                        })
+                        $("#unpass").on("click",function(data,status)
+                        {
+                            //console.log("不过审核按钮！")
+                            $.post("task_check.php",
+                            {
+                                'title'       : json[0].title,
+                                'content'     : json[0].content,
+                                'check_state' : false
+                            },function(data,status)
+                            {
+                                console.log(data)
+                                //操作完成之后再次请求最新数据
+                                get_latest()
+                            })
                         })
                     })
+                }
+                $("#update").click(function()
+                {
+                    get_latest()
+                })
+                
             })
-</script>
+    </script>
 </head>
 <body>
+<div class="container-fluid">
     <h1 style="text-align: center;">后台中心</h1>
     <span>审核任务</span>
-    <button id="update">获取下一行最新数据</button>
+    <button id="update" class="btn btn-primary">获取下一行最新数据</button>
     <div class="block">
         <ol>
-            <li>
+            <!-- 模板 -->
+            <!-- <li>
                 <h3 class="title">标题</h3>  <h4 class="title">提交者:创艺</h4>
                 <div>内容</div>
-                <button>审核通过</button>
-                <button>审核不通过</button>
+                <button type="button" class="btn btn-success">审核通过</button>
+                <button type="button" class="btn btn-dark">审核不通过</button>
+            </li> -->
         </ol>
     </div>
+</div>
 </body>
 </html>
 

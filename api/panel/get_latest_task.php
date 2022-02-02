@@ -4,6 +4,8 @@
             #获得行数
             $count = $db->getValue("task","count(*)");
             //echo "行数".$count."<br/>";
+            #只获取未审核的任务
+            $db->where("allow",0);
             $json = $db->jsonBuilder()->getOne("task");
             #rawQueryOne("SELECT * from task WHERE allow=0");
             echo $json;
