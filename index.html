@@ -10,12 +10,22 @@
     <script src="thirdparty/jquery.jplayer.min.js"></script>
     <script src="js/initPlayer.js"></script>
     <script src="js/nav.js"></script>
+    <style>
+        .sentence{
+			color:white;
+			background:black;
+			font-size: 20px;
+			text-align: center;
+		}
+    </style>
 </head>
 <body>
   <div class="nav"></div>
-<center><h1>学生技能知识付费-赚钱外包平台</h1></center>
+  <!--HTML头部由此开始-->
+  <div class="sentence">导航栏</div>
+<!--请不要使用<center/>标签，因为它已经被淘汰。-->
+<h1 style="text-align:center;">学生技能知识付费-赚钱外包平台</h1>
 <!--<p>简单易用，界面简单功能简单，不过我不一定会把服务器搭建起来的</p>-->
-
 <!--<a href="user.html">个人主页</a>
 <a href="earnMoney.html" target="_blank">我要赚钱</a>
 <a href="bussiness.html" target="_blank">我要发布任务</a>
@@ -26,67 +36,90 @@
 <a href="student_opensource.html" target="_blank">学生自主开源项目站</a>
 <a href="web_owner_info.html" target="_blank">站长的话</a>-->
 <!--todo 添加不同客户端的系统图标-->
-<a href="#">pc客户端下载(C#)由MethodBox提供技术支持</a><br/>
-<a href="#">安卓客户端下载(Java)由站长提供技术支持</a><br/>
-<a href="#">ios客户端下载:无</a>
+<!--<audio controls="true" src="audio/sion.mp3"></audio>-->
 
+</div>
+<h2>站点介绍</h2>
+<details>
+  <summary style="size: 30px;" title>关于费用</summary>
+  <summary>
+    <ul>
+      <li>可以通过充值界面缴费。</li>
+      <li>但为防止未成年学生用户使用父母的过多钱财，而导致对网站的负面影响，
+        所有用户（商家）默认只能充值最高100元，超过的需要进行实名认证，当然是采用新型的方法认证，而不是身份证。</li>
+        <li>至于为什么，因为我们没有能力保证隐私数据并不泄漏。</li>
+    </ul>
+  </summary>
+</details>
+<details>
+  <summary style="size: 30px;" title>作者的话</summary>
+  <ul>
+    <li>没有好的平台，就自己去创一个天地（即使用不了）!</li>
+    <li>此项目的源码部分的软著权归小沙盒工作室，开发库归开源作者。</li>
+    <li>
+      <a href="http://github.com/2439905184" target="_blank" style=text-decoration:none;><p>我的Github，站长的游戏也欢迎大家来玩。</p></a>
+    </li>
+  </ul>
+</details>
+<details>
+  <summary>社区规范</summary>
+  <summary>
+    <ul>
+      <li>为保证用户纯度，凡是用户自主营业额大于一定数额的，不予加入社区，如果要加入社区，需要经过层层考验。</li>
+      <li>......</li>
+    </ul>
+  </summary>
+</details>
+<hr>
+<h2>客户端下载</h2>
+<a href="#">pc客户端下载(C#)：由MethodBox提供技术支持</a><br/>
+<a href="#">安卓客户端下载(Java)：由站长提供技术支持</a><br/>
+<a href="#">ios客户端下载：考虑Xamarin开发</a>
+<hr>
 <div>
-    <!--人活一生，音乐少不了!-->
-<p>音乐播放器</p>
+  <!--人活一生，音乐少不了!-->
+<h2>音乐播放</h2>>
 <input placeholder="请输入音频直链"/>
 <button>添加音乐</button>
 <!--这里引用一下开源音乐播放器.js github-->
 <!--后期把播放列表的功能加上-->
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
 <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
-  <div class="jp-type-single">
-    <div class="jp-gui jp-interface">
-      <div class="jp-volume-controls">
-        <button class="jp-mute" role="button" tabindex="0">mute</button>
-        <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
-        <div class="jp-volume-bar">
-          <div class="jp-volume-bar-value"></div>
-        </div>
-      </div>
-      <div class="jp-controls-holder">
-        <div class="jp-controls">
-          <button class="jp-play" role="button" tabindex="0">play</button>
-          <button class="jp-stop" role="button" tabindex="0">stop</button>
-        </div>
-        <div class="jp-progress">
-          <div class="jp-seek-bar">
-            <div class="jp-play-bar"></div>
-          </div>
-        </div>
-        <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
-        <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
-        <div class="jp-toggles">
-          <button class="jp-repeat" role="button" tabindex="0">repeat</button>
-        </div>
+<div class="jp-type-single">
+  <div class="jp-gui jp-interface">
+    <div class="jp-volume-controls">
+      <button class="jp-mute" role="button" tabindex="0">mute</button>
+      <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+      <div class="jp-volume-bar">
+        <div class="jp-volume-bar-value"></div>
       </div>
     </div>
-    <div class="jp-details">
-      <div class="jp-title" aria-label="title">&nbsp;</div>
-    </div>
-    <div class="jp-no-solution">
-      <span>Update Required</span>
-      To play the media you will need to either update your browser to a recent version or update your <a href="https://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+    <div class="jp-controls-holder">
+      <div class="jp-controls">
+        <button class="jp-play" role="button" tabindex="0">play</button>
+        <button class="jp-stop" role="button" tabindex="0">stop</button>
+      </div>
+      <div class="jp-progress">
+        <div class="jp-seek-bar">
+          <div class="jp-play-bar"></div>
+        </div>
+      </div>
+      <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+      <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+      <div class="jp-toggles">
+        <button class="jp-repeat" role="button" tabindex="0">repeat</button>
+      </div>
     </div>
   </div>
+  <div class="jp-details">
+    <div class="jp-title" aria-label="title">&nbsp;</div>
+  </div>
+  <div class="jp-no-solution">
+    <span>Update Required</span>
+    To play the media you will need to either update your browser to a recent version or update your <a href="https://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+  </div>
 </div>
-<!--<audio controls="true" src="audio/sion.mp3"></audio>-->
 </div>
 
-<p>为防止未成年学生用户使用父母的过多钱财，而导致对网站的负面影响，
-    所有用户（商家）默认只能充值最高100元，超过的需要进行实名认证，当然是采用新型的方法认证，而不是身份证，
-    为什么，因为我没有能力保证隐私数据并不泄漏
-</p>
-<p>作者的话</p>
-<p>没有好的平台，就自己去创一个天地！即使用不了</p>
-<p>此项目的源码部分的软著权归小沙盒工作室，开发库归开源作者</p>
-<p>github</p>
-<a href="http://github.com/2439905184" target="_blank"></a>
-<p>站长的游戏也欢迎大家来玩</p>
-<p>为保证用户纯度，凡是用户自主营业额大于一定数额的，不予加入社区，如果要加入社区，需要经过层层考验</p>
 </body>
 </html>

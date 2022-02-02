@@ -9,11 +9,26 @@
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- <script src="js/nav.js"></script> -->
     <script src="js/login.js"></script>
+    <style>
+        html,body{
+            background-image: url("img/bImg.jpg");
+            background-repeat:no-repeat;
+            background-origin: border-box;
+            background-position:center;  
+            background-size: 100%;  
+        }
+        a:hover{
+            background-color: lavender;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
     <!-- <div class="nav"></div> -->
     <div class="wrapper">
-        <div class="header">Login to <span>学生技能兼职平台</span></div>
+        <div class="header">登录到学生技能兼职平台</div>
     <div class="content">
             <ul>
                 <li>
@@ -28,10 +43,12 @@
                 </li>
                 <li>
                     <div class="text">
-                        <span class="mima">验证码</span><input id="verify_input" type="number" placeholder="请输入邮箱验证码(4位数)"/>
+                        <span class="yanzhengma">验证码</span><input id="verify_input" class="input-yanzhengma" type="number" placeholder="请输入邮箱验证码(4位数)"/>
                     </div>
                 </li>
-                <li><input type="button" value="获取邮箱验证码" id="verify"></li>
+                <li>
+                    <input type="button" value="获取邮箱验证码" id="verify">
+                </li>
                 <li><span id="timer">再次获取倒计时:60</span></li>
                 <li class="remember">
                     <input type="checkbox">记住我
@@ -45,12 +62,12 @@
                 </li>
             
             </ul>
-    
+    <br>
         <div class="footer">
-            <p>小沙盒工作室  <a href="https://lzr2006.github.io/wkgd/" target="_blank">Copyright 2018-2020 ToysWorld</a></p>
+           <p>Copyright 2018-2021  <a href="https://2439905184.github.io/littlesandbox2/">小沙盒工作室</a>&<a href="https://lzr2006.github.io/wkgd/" target="_blank">方法盒子</a></p>
         </div>
     </div>
-    <p>注：邮箱验证码只需要注册的时候填写，登录的时候可以不写</p>
-    <a href="index.html">返回主页</a>
+    <p style="color: ivory;">注：邮箱验证码只需要注册的时候填写，登录的时候可以不写</p>
+    <a href="index.html",class="back">返回主页</a>
 </body>
 </html>
