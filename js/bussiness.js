@@ -25,7 +25,12 @@ $(function()
             console.log(data)
             if(data == "任务发布成功")
             {
-                window.open("earnMoney.html","_self")
+                $("#myModal .modal-body").text("任务发布成功！")
+               // window.open("earnMoney.html","_self")
+            }
+            else
+            {
+                $("#myModal .modal-body").text("任务发布失败")
             }
         })
     })

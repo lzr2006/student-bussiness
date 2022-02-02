@@ -53,6 +53,7 @@
                             {
                                 'title'       : json[0].title,
                                 'content'     : json[0].content,
+                                'user'        : json[0].user,
                                 'check_state' : true
                             },function(data,status)
                             {
@@ -68,6 +69,7 @@
                             {
                                 'title'       : json[0].title,
                                 'content'     : json[0].content,
+                                'user'        : json[0].user,
                                 'check_state' : false
                             },function(data,status)
                             {

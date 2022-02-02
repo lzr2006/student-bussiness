@@ -13,10 +13,10 @@ $price   = $_POST['price'];
 $poster = $_POST['poster'];
 
 $db = new MysqliDb('127.0.0.1','root','root','student');
-echo "title".$title."<br/>";
+/*echo "title".$title."<br/>";
 echo "content".$content."<br/>";
 echo "price".$price."<br/>";
-echo "user".$poster."<br/>";
+echo "user".$poster."<br/>";*/
 $data = Array('title'=>$title,"content"=>$content,"price"=>$price,"user"=>$poster,"allow"=>0);
 $id = $db->insert("task",$data);
 if($id)
