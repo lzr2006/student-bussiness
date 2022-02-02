@@ -12,10 +12,11 @@ $(function()
             poster:"测试用户666"
         },function(data,status)
         {
-            /*if(status!=200)
+            alert(data)
+            if(data == "任务发布成功")
             {
-                alert("服务出错！")
-            }*/
+                window.open("earnMoney.html","_self")
+            }
         })
     })
 })
