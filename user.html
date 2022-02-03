@@ -2,9 +2,10 @@
 <head>
     <meta charset="utf-8">   
     <title>用户中心</title>
-    <!--<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/user.css">
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="js/user.js"></script>
@@ -38,6 +39,31 @@
    <br/>
    <button>提现</button>
    <button>充值</button>
+   <button id="tip" data-toggle="modal" data-target="#myModal" style="display: none;">模态</button>
+       <!-- 模态框 -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+   
+        <!-- 模态框头部 -->
+        <div class="modal-header">
+          <h4 class="modal-title">未登录！</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+   
+        <!-- 模态框主体 -->
+        <div class="modal-body">请先登录
+        </div>
+   
+        <!-- 模态框底部 -->
+        <div class="modal-footer">
+            <button class="btn btn-primary" id="login">登录</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+        </div>
+   
+      </div>
+    </div>
+  </div>
    <!--以后重构-->
    <!--
    <p>荣誉证书</p>

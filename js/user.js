@@ -1,6 +1,18 @@
-
 $(function()
 {
+    if($.cookie("user")!=null)
+    {
+
+    }
+    else
+    {
+        //alert("请先登录！")
+        $("#tip").trigger("click")
+        $("#myModal #login").click(function()
+        {
+            window.open("login.html","_self")
+        })
+    }
     //编辑信息
     $("#edit_btn").click(function()
     {

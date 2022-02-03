@@ -1,11 +1,10 @@
 $(function()
 {
-    //alert("测试安装！")
     $("#post_quest").click(function()
     {
         var title   = $("#title").val()
         var content = $("#content").val()
-        var user    = "测试用户666"
+        var user    = $.cookie("user")
         var price   = $("#price").val()
         console.log("title:"+title)
         console.log("content:"+content)

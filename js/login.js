@@ -19,10 +19,17 @@ $(function()
             $("#timer").text("再次获取倒计时:"+verify_reset)
         }
     }
+    $("#back").click(function()
+    {
+        window.open("index.html","_self")
+    })
+    //登录
     $("#Mylogin").click(function()
     {
         var account = $("#account").val()
         var pwd = $("#pwd").val()
+        var remember = $(".remember input").prop("checked")
+        //alert("记住？"+remember)
         if(account !="" && pwd!= "")
         {
             $.post("api/register.php",
@@ -35,7 +42,14 @@ $(function()
                 if(data)
                 {
                     alert("登录成功,带你到主页")
-                    //todo cookie缓存
+                    if(remember)
+                    {
+                        $.cookie("user",account,{expires:7})
+                    }
+                    else
+                    {
+                        $.cookie("user",account)
+                    }
                     window.open("index.html","_self")
                 }
                 else

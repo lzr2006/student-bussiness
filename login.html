@@ -5,9 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>注册/登录</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/login.css">
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <!-- <script src="js/nav.js"></script> -->
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="js/login.js"></script>
     <style>
         html,body{
@@ -26,6 +29,7 @@
     </style>
 </head>
 <body>
+    <!-- fix! 添加了bt4框架后导致input移位 -->
     <!-- <div class="nav"></div> -->
     <div class="wrapper">
         <div class="header">登录到学生技能兼职平台</div>
@@ -51,7 +55,7 @@
                 </li>
                 <li><span id="timer">再次获取倒计时:60</span></li>
                 <li class="remember">
-                    <input type="checkbox"><span style="color:black">记住我</span>
+                    <input type="checkbox"><span style="color:black">记住我(7天有效)</span>
                 </li>
     
                 <li>
@@ -68,6 +72,7 @@
         </div>
     </div>
     <p style="color: ivory;">注：邮箱验证码只需要注册的时候填写，登录的时候可以不写</p>
-    <a href="index.html",class="back">返回主页</a>
+    <button id="back" class="btn btn-primary">返回主页</button>
+    <!-- <a href="index.html",class="back">返回主页</a> -->
 </body>
 </html>
