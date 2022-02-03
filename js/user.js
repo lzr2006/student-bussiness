@@ -2,14 +2,25 @@ $(function()
 {
     if($.cookie("user")!=null)
     {
+        var account = $.cookie("user")
+        $.get("instance/user_content.html",function(data,status)
+        {
+            $("#content").empty()
+            $("#content").append(data)
+        })
         $.get("api/user.php",
         {
-            "account" : $.cookie("user")
+            "account" : account
         },function(data,status)
         {
-            console.log(data)
-            $("#content #nickname").text("昵称:"+data)
-           // console.log(JSON.parse(data))
+            var json = JSON.parse(data)
+            console.log(json)
+            $("#content #nickname").text("昵称："+json[0].nickname)
+            $("#content #sex").text("性别："+json[0].sex)
+            $("#content #location").text("所在地："+json[0].location)
+            $("#content #userinfo").text("个人介绍"+json[0].location)
+            //todo 之后添加
+            //$("#content ")
         })
     }
     else
@@ -124,6 +135,7 @@ $(function()
         var lit = $(this).text()
         $(this).css("border-left","4px solid #1890ff").siblings().css("border-left","0px")
         $(this).css("background-color","rgba(53, 51, 51, 0.244)").siblings().css("background-color","#FFFFFF")
+        //bug 更换界面时应该根据是否存在缓存而进行更新
         if(lit == "基本信息")
         {
             $("#profile_edit #content").empty()
@@ -132,7 +144,6 @@ $(function()
             {
                 $("#profile_edit #content").append(data)
             })
-            
         }
         if(lit == "账号绑定")
         {
