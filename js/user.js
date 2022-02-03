@@ -2,11 +2,18 @@ $(function()
 {
     if($.cookie("user")!=null)
     {
-
+        $.get("api/user.php",
+        {
+            "account" : $.cookie("user")
+        },function(data,status)
+        {
+            console.log(data)
+            $("#content #nickname").text("昵称:"+data)
+           // console.log(JSON.parse(data))
+        })
     }
     else
     {
-        //alert("请先登录！")
         $("#tip").trigger("click")
         $("#myModal #login").click(function()
         {
@@ -32,7 +39,40 @@ $(function()
             })
             $("#save").on("click",function()
             {
-                alert("信息已保存！")
+                var account  = $.cookie("user")
+                //alert(account)
+                var nickname = $("#nickname").val()
+                var headimg  = $("#edit_head").val()
+                //var sex      = $("#sex").prop("checked")
+                var sex      = 1
+                var location = $("#location").val()
+                var userinfo = $("#userinfo").val()
+                var qq       = $("#qq").val()
+                var wechat   = $("#wechat").val()
+                $.post("api/update_user.php",
+                {
+                    "account"  : account,
+                    "nickname" : nickname,
+                    "headimg"  : headimg,
+                    "location" : location,
+                    "userinfo" : userinfo,
+                    "qq"       : qq,
+                    "sex"      : sex,
+                    "wechat"   : wechat,
+                },function(data,status)
+                {
+                    console.log(data)
+                    if(data == "插入成功")
+                    {
+                        localStorage.setItem("account",account)
+                        localStorage.setItem("nickname",nickname)
+                        localStorage.setItem("headimg",headimg)
+                        localStorage.setItem("userinfo",userinfo)
+                        localStorage.setItem("qq",qq)
+                        localStorage.setItem("wechat",wechat)
+                    }
+                })
+                //alert("信息已保存！")
             })
             //更换头像
             $("#edit_head").click(function()
@@ -143,7 +183,3 @@ $(function()
         $("#user_skill_tag").empty()
     })
 })
-/*function get_file_path()
-    {
-        alert("#file").attr("value")
-    }*/

@@ -8,8 +8,13 @@
     <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!--react-->
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
     <script src="js/user.js"></script>
     <script src="js/nav.js"></script>
+    <!-- <script src="react/react.js" type="text/babel"></script> -->
     
 </head>
     <!--导航栏-->
@@ -24,15 +29,15 @@
    <div id="profile_edit">
     <div id="title">
         <b>基本信息</b>
-       <button id="edit_btn">编辑</button>
+       <button id="edit_btn" class="btn btn-primary">编辑</button>
     </div>
     <div id="content">
        <img width="200px" src="img/sand.png" alt="用户头像">
-       <p>昵称</p>
-       <p>性别</p>
-       <p>所在地</p>
-       <p>职业：自由职业</p>
-       <p>个人介绍</p>
+       <p id="nickname">昵称:</p>
+       <p>性别:</p>
+       <p>所在地:</p>
+       <p>职业：自由职业:</p>
+       <p>个人介绍:</p>
     </div>
    </div>
    

@@ -1,7 +1,7 @@
 <!--复用界面 基本信息模板-->
 <input id="file" type="file" style="display:none">
 <label>昵称</label>
-<input type='text' placeholder='请输入昵称'/>
+<input type='text' placeholder='请输入昵称' id="nickname"/>
 <br/>
 <span>用户头像</span><img id='edit_head' src='img/sand.png' width='100px'/>
 <br/>
@@ -10,13 +10,13 @@
     <input type='radio' name='sex'/>男
     <input type='radio'name='sex'/> 女</form>
 <br/>
-<span>所在地</span><input placeholder='请输入所在地'>
+<span>所在地</span><input id="location" placeholder='请输入所在地'>
 <br/>
-<span>个人介绍</span><textarea placeholder='请输入你的个人介绍'></textarea>
+<span>个人介绍</span><textarea  id="userinfo" placeholder='请输入你的个人介绍'></textarea>
 <br/>
-<span>qq</span><input placeholder='请输入你的qq'>
+<span>qq</span><input id="qq" placeholder='请输入你的qq'>
 <br/>
-<span>微信</span><input placeholder='请输入你的微信'>
+<span>微信</span><input id="wechat" placeholder='请输入你的微信'>
 <br/>
 <button id='save'>保存</button>
 <button id='back'>返回</button>
