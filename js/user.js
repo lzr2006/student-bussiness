@@ -40,12 +40,10 @@ $(function()
             $("#save").on("click",function()
             {
                 var account  = $.cookie("user")
-                //alert(account)
                 var nickname = $("#nickname").val()
                 var headimg  = $("#edit_head").val()
-                //var sex      = $("#sex").prop("checked")
-                var sex      = 1
-                var location = $("#location").val()
+                var sex      = $('#sex_form input[name="sex"]:checked').val()
+                var user_location = $("#location").val()
                 var userinfo = $("#userinfo").val()
                 var qq       = $("#qq").val()
                 var wechat   = $("#wechat").val()
@@ -54,7 +52,7 @@ $(function()
                     "account"  : account,
                     "nickname" : nickname,
                     "headimg"  : headimg,
-                    "location" : location,
+                    "location" : user_location,
                     "userinfo" : userinfo,
                     "qq"       : qq,
                     "sex"      : sex,
@@ -62,7 +60,7 @@ $(function()
                 },function(data,status)
                 {
                     console.log(data)
-                    if(data == "插入成功")
+                    if(data == "1")
                     {
                         localStorage.setItem("account",account)
                         localStorage.setItem("nickname",nickname)
@@ -70,9 +68,25 @@ $(function()
                         localStorage.setItem("userinfo",userinfo)
                         localStorage.setItem("qq",qq)
                         localStorage.setItem("wechat",wechat)
+                        alert("保存成功")
+                        location.reload()
+                    }
+                    if(data == "2")
+                    {
+                        localStorage.setItem("account",account)
+                        localStorage.setItem("nickname",nickname)
+                        localStorage.setItem("headimg",headimg)
+                        localStorage.setItem("userinfo",userinfo)
+                        localStorage.setItem("qq",qq)
+                        localStorage.setItem("wechat",wechat)
+                        alert("更新成功")
+                        location.reload()
+                    }
+                    else
+                    {
+                        alert("异常！"+data)
                     }
                 })
-                //alert("信息已保存！")
             })
             //更换头像
             $("#edit_head").click(function()

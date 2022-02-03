@@ -1,4 +1,6 @@
 <?php
+#状态码
+#1插入成功 2更新成功 0插入失败
 require_once("PHPMySQLiDatabaseClass/MysqliDb.php");
 $db = new MysqliDb('127.0.0.1','root','root','student');
 $account  = $_POST['account'];
@@ -14,6 +16,7 @@ $userinfo = $_POST['userinfo'];
 $db->where("account",$account);
 $pre_result = $db->get("userinfo");
 $result_number = sizeof($pre_result);
+#todo 把状态码和后端数据封装成json对象传回去
 #字段
 $data = Array(
     "account"=>$account,
@@ -28,12 +31,13 @@ if($result_number == 0)
     $id = $db->insert("userinfo",$data);
     if($id)
     {
-        echo "插入成功，更新了".$db->count."条数据";
+        //echo "插入成功，更新了".$db->count."条数据";
+        echo true;
     }
     else
     {
-        echo $account;
-        echo "插入失败".$db->getLastError();
+        //echo "插入失败".$db->getLastError();
+        echo false;
     }
 }
 #有数据，不执行插入操作，只执行更新操作
@@ -42,11 +46,13 @@ if($result_number == 1)
     $db->where("account",$account);
     if($db->update("userinfo",$data))
     {
-        echo "更新了".$db->count."条数据";
+        //echo "更新了".$db->count."条数据";
+        echo 2;
     }
     else
     {
-        echo "更新失败".$db->getLastError();
+        echo false;
+        #echo "更新失败".$db->getLastError();
     }
 }
 ?>
