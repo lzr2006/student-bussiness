@@ -1,5 +1,36 @@
 $(function()
 {
+    //将数据用json格式存在localStorage data=[]
+    /**
+     * 
+     * @param {Array<string>} data 字符串数组
+     */
+    function cache(data)
+    {
+        console.log("执行缓存数据")
+        console.log(data)
+        var json = JSON.stringify
+        ({
+            "昵称" : data[0],
+            "性别" : data[1],
+            "头像"  : data[2],
+            "个人介绍" : data[3],
+            "qq"       : data[4],
+            "微信"   : data[5],
+        })
+        localStorage.setItem("student_user_json",json)
+    }
+    /**
+     * 
+     * @param {string} data json对象字符串
+     */
+    function cache_json(data)
+    {
+        console.log("执行缓存数据")
+        console.log(data)
+        localStorage.setItem("student_user_json",data)
+    }
+    //检测是否存在缓存
     if($.cookie("user")!=null)
     {
         var account = $.cookie("user")
@@ -7,20 +38,42 @@ $(function()
         {
             $("#content").empty()
             $("#content").append(data)
-        })
-        $.get("api/user.php",
-        {
-            "account" : account
-        },function(data,status)
-        {
-            var json = JSON.parse(data)
-            console.log(json)
-            $("#content #nickname").text("昵称："+json[0].nickname)
-            $("#content #sex").text("性别："+json[0].sex)
-            $("#content #location").text("所在地："+json[0].location)
-            $("#content #userinfo").text("个人介绍"+json[0].location)
-            //todo 之后添加
-            //$("#content ")
+            //检测缓存
+            if(localStorage.getItem("student_user_json") != null)
+            {
+                console.log("存在缓存")
+                console.log(localStorage.getItem("student_user_json"))
+                var json = JSON.parse(localStorage.getItem("student_user_json"))
+                //console.log(json)
+                var children = $("#content p")
+                // console.log(children)
+                var index = 0
+                for(item in json)
+                {
+                    $(children[index]).text(item +":" + json[item])
+                    index += 1
+                }
+             }
+            else
+            {
+                console.log("不存在缓存")
+                $.get("api/user.php",
+                {
+                    "account" : account
+                },function(data,status)
+                {
+                    console.log(data)
+                    if(data == 0)
+                    {
+                        alert("暂无数据，请手动编辑")
+                    }
+                    else
+                    {
+                        cache(data)
+                        console.log(JSON.parse(data))
+                    }
+                })
+            }
         })
     }
     else
@@ -34,22 +87,17 @@ $(function()
     //编辑信息
     $("#edit_btn").click(function()
     {
-        //todo 重构到单独的html里面去
         $("#profile_edit #content").empty()
         $.get("instance/user_basic.html",function(data,status)
         {
             $("#profile_edit #content").append(data)
             $("#back").on("click",function()
             {
-                $("#profile_edit #content").empty()
-                $.get("instance/user_content.html",function(data,status)
-                {
-                    console.log(data)
-                    $("#profile_edit #content").append(data)
-                })
+                location.reload()
             })
             $("#save").on("click",function()
             {
+                var data_array = []
                 var account  = $.cookie("user")
                 var nickname = $("#nickname").val()
                 var headimg  = $("#edit_head").val()
@@ -70,26 +118,19 @@ $(function()
                     "wechat"   : wechat,
                 },function(data,status)
                 {
-                    console.log(data)
                     if(data == "1")
                     {
-                        localStorage.setItem("account",account)
-                        localStorage.setItem("nickname",nickname)
-                        localStorage.setItem("headimg",headimg)
-                        localStorage.setItem("userinfo",userinfo)
-                        localStorage.setItem("qq",qq)
-                        localStorage.setItem("wechat",wechat)
+                        data_array.push(nickname,headimg,sex,userinfo,qq,wechat)
+                        //console.log(data_array)
+                        cache(data_array)
                         alert("保存成功")
                         location.reload()
                     }
                     if(data == "2")
                     {
-                        localStorage.setItem("account",account)
-                        localStorage.setItem("nickname",nickname)
-                        localStorage.setItem("headimg",headimg)
-                        localStorage.setItem("userinfo",userinfo)
-                        localStorage.setItem("qq",qq)
-                        localStorage.setItem("wechat",wechat)
+                        data_array.push(nickname,headimg,sex,userinfo,qq,wechat)
+                        //console.log(data_array)
+                        cache(data_array)
                         alert("更新成功")
                         location.reload()
                     }
@@ -129,7 +170,6 @@ $(function()
             })
         })
     })
-    
     $("#profile_root li").click(function()
     {
         var lit = $(this).text()
@@ -139,11 +179,12 @@ $(function()
         if(lit == "基本信息")
         {
             $("#profile_edit #content").empty()
-            $("#profile_edit #title b").text("基本信息")
+            location.reload()
+            /*$("#profile_edit #title b").text("基本信息")
             $.get("instance/user_content.html",function(data,status)
             {
                 $("#profile_edit #content").append(data)
-            })
+            })*/
         }
         if(lit == "账号绑定")
         {
