@@ -61,6 +61,8 @@
                                 console.log(data)
                                 //操作完成之后再次请求最新数据
                                 get_latest()
+                                $("audio").attr("src","../../audio/se_old_extend.wav")
+                                $("audio")[0].play()
                             })
                         })
                         $("#unpass").on("click",function(data,status)
@@ -84,6 +86,8 @@
                 $("#update").click(function()
                 {
                     get_latest()
+                    $("audio").attr("src","../../audio/se_gun00.wav")
+                    $("audio")[0].play()
                 })
                 //重新审核
                 $("#recheck").click(function()
@@ -102,6 +106,7 @@
     </script>
 </head>
 <body>
+<audio src="../../audio/se_old_extend.wav"></audio>
 <div class="container-fluid">
     <h1 style="text-align: center;">后台中心</h1>
     <span>审核任务</span>

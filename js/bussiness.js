@@ -22,6 +22,16 @@ $(function()
             console.log(json)
             console.log(json.respone_msg)
             $("#myModal .modal-body").text(json.respone_msg)
+            if(json.respone_msg == "发布成功，等待管理员审核")
+            {
+                $("audio").attr("src","audio/se_old_extend.wav")
+                $("audio")[0].play()
+            }
+            else
+            {
+                $("audio").attr("src","audio/se_error.wav")
+                $("audio")[0].play()
+            }
         })
     })
 })

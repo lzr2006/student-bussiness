@@ -40,7 +40,7 @@ else
     if($id)
     {
         $respone_body['respone_code'] = 200;
-        $respone_body['respone_msg']  = "发布成功"; 
+        $respone_body['respone_msg']  = "发布成功，等待管理员审核"; 
         echo json_encode($respone_body);
     }
     else

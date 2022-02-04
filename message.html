@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/title.css">
+    <title>消息中心</title>
+    <style>
+    #profile_root
+{
+    border: solid 2px;
+    width: 15%;
+    height: 624px;
+    display: inline-block;
+    padding: 0px;
+    vertical-align: top;
+}
+#profile_root li
+{
+    list-style-type:none;
+    margin-left: 0px;
+    /* border-left: 4px solid #1890ff; */
+}
+#profile_root li:hover
+{
+    background-color: rgba(53, 51, 51, 0.244);
+}
+#profile_edit
+{
+    display: inline-block;
+    border: solid 2px;
+    height: 624px;
+    width: 80%;
+    vertical-align: top;
+}
+#profile_edit #title #edit_btn
+{
+    float: right;
+}
+#content
+{
+    display : inline-block;
+    border : solid 2px;
+    width : 1000px;
+    height : 800px;
+}
+#content li
+{
+    list-style-type : none;
+    border : solid 2px;
+    margin-top: 10px;
+}
+#content li:hover
+{
+    background-color: orange;
+}
+#bg
+{
+    background-image: url("img/9.jpg");
+}
+    </style>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="js/message.js"></script>
+    <script src="js/nav.js"></script>
+</head>
+<body>
+    <audio src="audio/se_changeitem.wav"></audio>
+    <div class="nav"></div>
+    <h1>消息中心</h1>
+    <!-- todo 添加背景图 -->
+    <div id="bg">
+    <ol id="profile_root">
+        <li>回复我的</li>
+        <li>我的消息</li>
+        <li>私信存档</li>
+        <!-- todo -->
+        <li>自动回复</li>
+        <li>系统通知{{:system_count}}</li>
+    </ol>
+    <div id="content">
+        <ol>
+            <li>测试</li>
+            <li>测试</li>
+            <li>测试</li>
+            <li>测试</li>
+            <li>测试</li>
+            <li>测试</li>
+            <li>测试</li>
+        </ol>
+    </div>
+</div>
+</body>
+</html>

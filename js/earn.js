@@ -2,7 +2,12 @@ $(function()
 {
     $("#refresh").click(function()
     {
-        location.reload()
+        $("audio").attr("src","audio/se_old_extend.wav")
+        $("audio")[0].play()
+        alert("功能暂时移除，请手动刷新浏览器")
+        //todo 等待音乐播放完毕再重新刷新
+        //update_model(0)
+        //location.reload()
     })
     //todo 更新模板数据 
     /**
@@ -29,7 +34,7 @@ $(function()
             $("#list").append(html)
         }
     }
-    //改天研究下react jq太烦了
+    //改天研究下react
     $.get("api/get_checked_tasks.php",function(data,status)
     {
         if(data)
@@ -41,7 +46,9 @@ $(function()
             if(json.length == 0)
             {
                 $("#page").hide()
+                return
             }
+            $("#list p").hide()
             var tmpl = $.templates("#myTmpl")
             //预处理json 按每10个元素分割->array_utils.js
             var jsonUtil = new JsonUtil()
@@ -82,6 +89,17 @@ $(function()
                 var html = tmpl.render(tmpl_data)
                 $("#list").append(html)
             }
+            $("#list .li button").on("click",function()
+            {
+                //alert("点击！")
+                var parent = $(this).parent()
+                var title = parent.children("b.title")
+                var text = title.text()
+                $.cookie("danzi",text)
+                console.log("单子："+text)
+                window.open("task_detail.html")
+            })
+            
         }
         else
         {
