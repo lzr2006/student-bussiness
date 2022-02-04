@@ -1,5 +1,6 @@
 $(function()
 {
+    //document.write(Pager({totalCount:150}))
     $("#refresh").click(function()
     {
         location.reload()
@@ -14,6 +15,7 @@ $(function()
     {
         if(data)
         {
+            var show_index = 1
             var json = JSON.parse(data)
             console.log(json)
             var tmpl = $.templates("#myTmpl")
@@ -23,6 +25,19 @@ $(function()
             var result = jsonUtil.arraySplit(tmp,10)
             console.log("分割数组！")
             console.log(result)
+            //设置分页
+            for(i in result)
+            {
+                console.log(show_index)
+                console.log(typeof(show_index))
+                var li = $("<li class='page-item'></li>")
+                var a  = $("<a class='page-link' href='#'></a>")
+                $(li).attr("id",show_index.toString())
+                $(a).text(show_index)
+                var r  = $(li).append(a)
+                $("#"+i).after(r)
+                show_index += 1
+            }
             //第一页
             for(i in result[0])
             {

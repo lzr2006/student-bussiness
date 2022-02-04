@@ -8,6 +8,7 @@
         <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
         <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="thirdparty/jsRender.js"></script>
+        <!-- <script src="thirdparty/BootstrapPager-0.2/dist/bootstrapPager.js"></script> -->
         <script src="js/jiedan.js"></script>
 
         <script src="js/nav.js"></script>
@@ -23,6 +24,7 @@
             <p>技能要求:{{:skill}}</p> 
         </div>
     </script>
+    
         <title>赚钱</title>
     </head>
     <body>
@@ -37,11 +39,8 @@
     <!--一页的任务列表有10个-->
     
     <div id="list"></div>
-    <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <ul class="pagination pagination-lg" id="page">
+        <li class="page-item" id="0"><a class="page-link" href="#">Previous</a></li>
         <li class="page-item"><a class="page-link" href="#">Next</a></li>
       </ul>
   <!-- <div>任务分类</div>-->
