@@ -11,17 +11,29 @@ $(function()
         {
             var json = JSON.parse(data)
             console.log(json)
+            var tmpl = $.templates("#myTmpl")
+            var data = 
+            {
+                'name'    : json[0].title,
+                'price' : 100,
+            }
+            var html = tmpl.render(data)
+            for(i in json)
+            {
+                $("#list").append(html)
+            }
             //预处理json 按每10个元素分割->array_utils.js
-            var jsonUtil = new JsonUtil()
+            /*var jsonUtil = new JsonUtil()
             var tmp = jsonUtil.toArray(data)
             var result = jsonUtil.arraySplit(tmp,10)
             console.log("分割数组！")
             console.log(result)
             $("#list").append("A")
-            for(item in result)
+            $("#list").append("<p>"+result[0][0]+"</p>")*/
+            /*for(item in result)
             {
                
-            }
+            }*/
             /*for(var i=0;i<json.length;i++)
             {
                 var content_wrapper = $("<div class='li'></div>")

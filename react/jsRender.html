@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsRender模板测试</title>
+    <link rel="stylesheet" href="../css/earnMoney.css">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="../thirdparty/jsRender.js"></script>
+    <!--任务列表模板-->
+    <script id="myTmpl" tpye="test/x-jsrender">
+        <div class="li">
+            <img width="100px" src="../img/sand.png" alt="项目图片预览">
+            项目:<a href="task_detail.html" target="_blank"><b>{{:name}}</b></a>
+            <span class="proj_state"><b>项目状态</b></span><span>{{:data}}</span>
+            <span class="price"><b>价格:</span></b><span>￥{{:price}}</span>
+        <p>技能要求:Java</p> 
+        </div>
+    </script>
+    <script>
+    $(function()
+    {
+        var tmpl = $.templates("#myTmpl")
+        var data = 
+        {
+            'name'    : 12345678,
+            'price' :100,
+        }
+        var html = tmpl.render(data)
+        $("#result").html(html)
+        /*
+        jsRenderTpl = $.templates("#myTmpl")
+        result = jsRenderTpl(data)
+        $("#result").html(result)*/
+    })</script>
+</head>
+<body>
+    <div id="result"></div>
+</body>
+</html>
