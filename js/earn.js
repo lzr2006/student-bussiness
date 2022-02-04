@@ -18,6 +18,10 @@ $(function()
             var show_index = 1
             var json = JSON.parse(data)
             console.log(json)
+            if(json.length == 0)
+            {
+                $("#page").hide()
+            }
             var tmpl = $.templates("#myTmpl")
             //预处理json 按每10个元素分割->array_utils.js
             var jsonUtil = new JsonUtil()
