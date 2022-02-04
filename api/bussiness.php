@@ -5,6 +5,8 @@
 
 #use think\db\builder\Mysql;
 
+use function PHPSTORM_META\type;
+
 require_once("PHPMySQLiDatabaseClass/MysqliDb.php");
 
 $title   = $_POST['title'];
@@ -13,22 +15,40 @@ $price   = $_POST['price'];
 $poster = $_POST['poster'];
 
 $db = new MysqliDb('127.0.0.1','root','root','student');
-/*echo "title".$title."<br/>";
-echo "content".$content."<br/>";
-echo "price".$price."<br/>";
-echo "user".$poster."<br/>";*/
+#状态码
+$respone_body = Array
+(
+    'respone_code'  =>"",
+    'respone_msg'   =>"",
+    'respone_debug' =>"",
+);
 $data = Array('title'=>$title,"content"=>$content,"price"=>$price,"user"=>$poster,"allow"=>0);
-$id = $db->insert("task",$data);
-if($id)
+#SELECT title from taks LIMT 1 WHERE title = $title
+$db->where("title",$title);
+$result = $db->getValue("task","title",1);
+#var_dump($db->count);
+#var_dump($result);
+if($db->count == 1)
 {
-    echo "任务发布成功";
+    $respone_body['respone_code'] = 403;
+    $respone_body['respone_msg']  = "标题重复！请修改!"; 
+    echo json_encode($respone_body);
 }
 else
 {
-    echo "<br/>任务发布失败，如果此消息重复出现，请联系官方开发人员";
+    $id = $db->insert("task",$data);
+    if($id)
+    {
+        $respone_body['respone_code'] = 200;
+        $respone_body['respone_msg']  = "发布成功"; 
+        echo json_encode($respone_body);
+    }
+    else
+    {
+        $respone_body['respone_code'] = 404;
+        $respone_body['respone_msg']  = "发布失败404,如果此消息重复出现，请联系官方开发人员"; 
+        $respone_body['debug'] = $db->getLastError();
+        echo json_encode($respone_body);
+    }
 }
-/*var $_POST[''];
-$pdo = new PDO();
-$pdo->;
-echo ""；*/
 ?>
