@@ -65,7 +65,9 @@ $(function()
                     console.log(data)
                     if(data == 0)
                     {
-                        alert("暂无数据，请手动编辑")
+                        $("#myModal .modal-header").text("暂无数据")
+                        $("#myModal .modal-body").text("暂无数据，请手动编辑")
+                        $("#tip").trigger("click")
                     }
                     else
                     {
