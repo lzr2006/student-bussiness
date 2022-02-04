@@ -11,8 +11,18 @@ $(function()
         {
             var json = JSON.parse(data)
             console.log(json)
-            //console.log(typeof(model_data))
-            for(var i=0;i<json.length;i++)
+            //预处理json 按每10个元素分割->array_utils.js
+            var jsonUtil = new JsonUtil()
+            var tmp = jsonUtil.toArray(data)
+            var result = jsonUtil.arraySplit(tmp,10)
+            console.log("分割数组！")
+            console.log(result)
+            $("#list").append("A")
+            for(item in result)
+            {
+               
+            }
+            /*for(var i=0;i<json.length;i++)
             {
                 var content_wrapper = $("<div class='li'></div>")
                 var content_img = $("<img/>")
@@ -34,7 +44,7 @@ $(function()
                 $(content_wrapper).append("<p>技能要求:Java</p>")
 
                 $("#list").append(content_wrapper)
-            }
+            }*/
         }
         else
         {

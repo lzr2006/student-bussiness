@@ -182,11 +182,6 @@ $(function()
         {
             $("#profile_edit #content").empty()
             location.reload()
-            /*$("#profile_edit #title b").text("基本信息")
-            $.get("instance/user_content.html",function(data,status)
-            {
-                $("#profile_edit #content").append(data)
-            })*/
         }
         if(lit == "账号绑定")
         {
@@ -216,9 +211,7 @@ $(function()
     function add_tag()
     {
         var tag_name = $(this).text()
-        //alert(tag_name)
         //避免添加重复的内容
-        //alert(skills.indexOf(tag_name))
         if(skills.indexOf(tag_name)==-1)
         {
             skills.push(tag_name)
@@ -232,9 +225,7 @@ $(function()
     $(".tag").click(function()
     {
         var tag_name = $(this).text()
-        //alert(tag_name)
         //避免添加重复的内容
-        //alert(skills.indexOf(tag_name))
         if(skills.indexOf(tag_name)==-1)
         {
             skills.push(tag_name)
